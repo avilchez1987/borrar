@@ -1,15 +1,7 @@
 {
-  "version": 2,
   "functions": {
-    "index.js": {
-      "memory": 128,
-      "maxDuration": 10
+    "api/index.js": {
+      "runtime": "nodejs18.x"
     }
-  },
-  "builds": [
-    {
-      "src": "index.js",
-      "use": "@vercel/node"
-    }
-  ]
+  }
 }
