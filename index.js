@@ -1,15 +1,14 @@
 const express = require('express');
 const cors = require('cors');
-const serverless = require('serverless-http');
+const serverless = require('serverless-http'); // Necesario para funciones serverless
 
 require('dotenv').config();
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
+app.use('/api', require('./routes/user')); // Ruta de tus endpoints
 
-// Define tus rutas API
-app.use('/api', require('./routes/user'));
-
-// Exporta la función handler para Vercel
-module.exports = serverless(app);
+// Exporta la aplicación como una función handler para serverless
+module.exports.handler = serverless(app); // Exporta como 'handler'
